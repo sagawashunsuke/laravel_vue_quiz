@@ -2200,13 +2200,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'app',
+  name: "app",
   components: {
     TheHeader: _layout_TheHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
     TheFooter: _layout_TheFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: {
+    errors: {
+      type: Object | Array
+    }
   }
 });
 
@@ -2415,8 +2421,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
 /* harmony import */ var vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vee-validate/dist/rules */ "./node_modules/vee-validate/dist/rules.js");
-/* harmony import */ var _layout_TheHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layout/TheHeader */ "./resources/js/components/layout/TheHeader.vue");
-/* harmony import */ var _layout_TheFooter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../layout/TheFooter */ "./resources/js/components/layout/TheFooter.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2535,8 +2539,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-
-
+//
+//
+//
+//
 
 
 Object(vee_validate__WEBPACK_IMPORTED_MODULE_1__["extend"])("required", _objectSpread(_objectSpread({}, vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_2__["required"]), {}, {
@@ -2567,6 +2573,11 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_1__["extend"])("confirmed", _object
       password_confirmation: "",
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content")
     };
+  },
+  props: {
+    errors: {
+      type: Array | Object
+    }
   },
   methods: {
     register: function register() {
@@ -59077,7 +59088,7 @@ var render = function() {
     [
       _c("the-header"),
       _vm._v(" "),
-      _c("router-view"),
+      _c("router-view", { attrs: { errors: _vm.errors } }),
       _vm._v(" "),
       _c("the-footer")
     ],
@@ -59381,6 +59392,26 @@ var render = function() {
               _c("div", { staticClass: "panel-heading text-center" }, [
                 _vm._v("ユーザー登録")
               ]),
+              _vm._v(" "),
+              _vm.errors.length !== 0
+                ? _c("div", { staticClass: "form-group has-error" }, [
+                    _c(
+                      "div",
+                      { staticClass: "alert alert-danger text-center" },
+                      [
+                        _vm._v(
+                          "\n                ユーザー登録実行時にエラーが発生しました\n                "
+                        ),
+                        _vm._l(_vm.errors, function(error, key, index) {
+                          return _c("div", { key: index }, [
+                            _vm._v(_vm._s(error))
+                          ])
+                        })
+                      ],
+                      2
+                    )
+                  ])
+                : _vm._e(),
               _vm._v(" "),
               _c(
                 "div",
