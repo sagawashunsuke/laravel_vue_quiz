@@ -17,7 +17,7 @@
                 <ValidationObserver
                   class="form-horizontal"
                   ref="observer"
-                  action="/login"
+                  action="login"
                   id="login"
                   method="post"
                   tag="form"
