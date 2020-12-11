@@ -8,6 +8,9 @@ Route::get('/quiz', function () {
 Route::get('/mypage', function () {
   return view('mypage.index');
 });
+Route::get('/keyword', function () {
+  return view('keyword.index');
+});
 Route::get('/login', function () {
   return view('auth.login.index');
 });
@@ -18,4 +21,5 @@ Route::get('/register', function () {
 Route::post('/register', 'Auth\RegisterController@register');
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout');
+
 Route::post('/insertRanking', 'Web\RankingController@insertRanking');

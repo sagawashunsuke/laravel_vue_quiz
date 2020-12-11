@@ -17,7 +17,6 @@ class MypageController extends Controller
    */
   public function index()
   {
-    \Log::debug(Auth::user());
     // ログインユーザーの最新の正解率を取得する。
     $myScore = Ranking::select('percentage_correct_answer', 'created_at')
       ->where('user_id', '=', auth('api')->user()->id)
